@@ -1,23 +1,20 @@
-var food = require('../models/FoodModel');
-var router = require('express').Router();
+var express = require('express');
+var router = express.Router();
+var foodController = require('../controllers/foodController');
 
-router.use(function (req,res,next) {
-    console.log('Something happening');
+router.use(function timelong(req, res, next) {
+    console.log('Time', Date.now);
     next();
- });
-
-router.get('/',function(req,res) {
-    res.json({message: 'welcome to api'});
 });
 
-router.route('/foods').get((req, res) => {
-    food.find((err, food) => {
+router.get('/', (req, res) => {
+    foodController.getFoods((err, foods) => {
         if (err) {
             console.log(err);
             return;
         }
-        res.json(food);
-    });
+        res.json(foods);
+    })
 });
 
-module.exports = food.api;
+module.exports = router;

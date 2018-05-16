@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyparser = require('body-parser');
+var cors = require('cors');
 
 // import * as api from './routes';
 
@@ -16,6 +17,8 @@ mongoose.connect('mongodb://localhost:27017/FoodOrderSystem', err => {
 mongoose.Promise = global.Promise;
 
 // app.use('/', routes);
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello World');
