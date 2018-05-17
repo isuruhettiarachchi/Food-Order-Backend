@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyparser = require('body-parser');
+var session = require('express-session');
 var cors = require('cors');
 
 // import * as api from './routes';
