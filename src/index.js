@@ -7,7 +7,14 @@ var cors = require('cors');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/FoodOrderSystem', err => {
+// mongoose.connect('mongodb://localhost:27017/FoodOrderSystem', err => {
+//   if (err) {
+//     console.warn(err);
+//   }
+//   console.log('database connected');
+// });
+
+mongoose.connect('mongodb://user:pass@ds111885.mlab.com:11885/afdb', err => {
   if (err) {
     console.warn(err);
   }
